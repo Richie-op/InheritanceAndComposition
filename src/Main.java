@@ -1,48 +1,35 @@
 import composition.Movie;
 import composition.TvShows;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-Media media1 = new Media("Need for Speed","PG-13");
-Media media2 = new Media("Rush", "R");
+Director director = new Director("Christopher Nolan");
+Actors actor1 = new Actors("Leonardo Dicaprio");
+Actors actor2 = new Actors("Joseph Gordon-Levitt");
 
-Director director1 = new Director("Scott", "Waugh");
-Director director2 = new Director("Ron", "Howard");
+        ArrayList<Actors> cast = new ArrayList<>();
+        cast.add(actor1);
+        cast.add(actor2);
 
-Actors actors1 = new Actors("Aaron", "Paul");
-Actors actors2 = new Actors("Chris", "Hemsworth");
+        Media media = new Media("The Wolf of Wall Street", "R", director, cast);
 
-Movie movie1 = new Movie(210, "Action/Crime", 66);
-Movie movie2 = new Movie(203,"Sport/Action", 38);
+        Movie movie = new Movie(148, "Comedy/Thriller", 829.3);
 
-TvShows tvShows1 = new TvShows(3,10);
-TvShows tvShows2 = new TvShows(10,14);
+        TvShow tvShow = new TvShow("Breaking Bad","MA", new Director("Vince Gilligan"),
+                new ArrayList<>(), 5, 62);
 
-            System.out.println(tvShows1.getSeasons());
-            System.out.println(tvShows1.getEpisodes());
-            System.out.println(tvShows2.getSeasons());
-            System.out.println(tvShows2.getEpisodes());
+        System.out.println("Media Title: " + media.getTitle());
+        System.out.println("Media Rating: " + media.getRating());
 
-            System.out.println(movie1.getLength());
-            System.out.println(movie1.getDescription());
-            System.out.println(movie1.getGrossing());
-            System.out.println(movie2.getLength());
-            System.out.println(movie2.getDescription());
-            System.out.println(movie2.getGrossing());
+        System.out.println("Movie Description: " + movie.getDescription());
+        System.out.println("Movie Length: " + movie.getLength());
 
-        System.out.println(actors1.getFirstName());
-        System.out.println(actors2.getFirstName());
-        System.out.println(actors1.getLastName());
-        System.out.println(actors2.getLastName());
+        System.out.println("TV Show Title: " + tvShow.getTitle());
+        System.out.println("Tv Show Seasons: " + tvShow.getEpisodes());
 
-        System.out.println(director1.getFirstName());
-        System.out.println(director2.getFirstName());
-        System.out.println(director1.getLastName());
-        System.out.println(director2.getLastName());
-
-        System.out.println(media1.getTitle());
-        System.out.println(media2.getTitle());
-        System.out.println(media1.getRating());
-        System.out.println(media2.getRating());
+        System.out.println("Director Name: " + director.getName());
+        System.out.println("Actor Name: " + actor1.getName());
     }
 }
